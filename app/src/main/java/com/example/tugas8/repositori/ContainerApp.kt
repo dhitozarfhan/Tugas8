@@ -1,5 +1,6 @@
 package com.example.tugas8.repositori
 
+import android.app.Application
 import android.content.Context
 import androidx.compose.foundation.text.contextmenu.data.TextContextMenuData
 import com.example.tugas8.room.DatabaseSiswa
@@ -16,3 +17,11 @@ class ContainerDataApp(private val context: Context):
                 )
             }
         }
+class AplikasiSiswa : Application() {
+    lateinit var container: ContainerApp
+
+    override fun onCreate() {
+        super.onCreate()
+        container = ContainerDataApp(context = this)
+    }
+}
